@@ -1,0 +1,22 @@
+{% extends "admin/base.html.twig" %}
+
+{% block main %}
+
+    {% for gcategory in gcategories.getAll %}
+        <li>{{ gcategory.name }}</li>
+    {% endfor %}
+
+	<h1>Images <h1>
+
+     <div class="add-media">
+        <a href="{{ path('admin_media_create') }}"> Ajouter une image</a>
+    </div>
+
+	{% for media in medias %}
+
+		<img src="{{ asset('media/' ~ media.src) }}" alt="{{ media.alt }}">
+        <a href="{{ path('admin_media_show', {'id' : media.id} ) }}">Plus d'infos</a>
+	{% endfor %}
+   
+
+{% endblock %}

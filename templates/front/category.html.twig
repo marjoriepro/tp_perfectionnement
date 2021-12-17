@@ -1,0 +1,22 @@
+{% extends 'front/base.html.twig' %}
+
+{% block main %}
+    <div class="container-category">
+        <h1>
+            {{ category.name }}
+        </h1>
+        <h2 class="block">
+            {{ category.description }}
+        </h2>
+    </div>
+    <div class="container">
+        {% for  media  in category.media %}
+            <div class="card">
+                <a href="{{ path('front_media_show', {'id' : media.id}) }}"><img src="{{ asset('img/media/' ~ category.media[0].src) }}" alt="{{ category.media[0].alt }}" class="w60"></a>
+                <h3><a href="{{ path('front_media_show', {'id' : media.id}) }}">{{ media.title }}</a></h3>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

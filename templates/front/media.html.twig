@@ -1,0 +1,19 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+	{% for gcategory in gcategories.getAll %}
+        <li>{{ gcategory.name }}</li>
+    {% endfor %}
+
+	<img src="{{ asset('media/' ~ media.src) }}" alt="{{ media.alt }}">
+
+	<h2>{{ media.title }}</h2>
+
+    {% for category in media.category %}
+
+        <p> {{ category.name }}</p>
+
+	{% endfor %}
+
+{% endblock %}

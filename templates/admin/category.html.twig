@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>{{ category.name }}</h1>
+		<p>{{ category.description }}</p>
+
+		<h2> photos associées à cette catégorie </h2>
+		 {% for  media  in category.media %}
+            <div class="card">
+                <a href="{{ path('front_media_show', {'id' : media.id}) }}"><img src="{{ asset('img/media/' ~ category.media[0].src) }}" alt="{{ category.media[0].alt }}" class="w60"></a>
+                <h3><a href="{{ path('front_media_show', {'id' : media.id}) }}">{{ media.title }}</a></h3>
+            </div>
+        {% endfor %}
+
+		<a href="{{ path('admin_category_delete', {'id' : category.id} ) }}" class="delete">Supprimer la catégorie</a>
+         <a href="{{ path('admin_category_update', {'id' : category.id} ) }}" class="update">Modifier la catégorie</a>
+		 
+	</body>
+</html>

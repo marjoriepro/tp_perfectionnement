@@ -1,0 +1,13 @@
+{% extends "front/base.html.twig" %}
+
+{% block main %}
+
+	<h1>Les images pour votre recherche : <h1>
+
+	{% for media in medias %}
+
+		<img src="{{ asset('media/' ~ image.src) }}" alt="{{ image.alt }}">
+
+	{% endfor %}
+
+{% endblock %}

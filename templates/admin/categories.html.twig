@@ -1,0 +1,28 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block main %}
+
+       <div class="add-category">
+        <a href="{{ path('admin_category_create') }}"> Ajouter une catégorie</a>
+    </div>
+
+
+    {% for message in app.flashes('notice') %}
+        <div class="flash-notice">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="container">
+        {% for category in categories %}
+            <div class="card br">
+                <h2>
+                   <a href="{{ path('admin_category_show', {'id' : category.id} ) }}">{{ category.name }} </a> 
+                </h2>
+            </div>
+        {% endfor %}
+        <div class="page">
+        </div>
+    </div>
+
+ 
+{% endblock %}
